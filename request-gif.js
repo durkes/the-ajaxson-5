@@ -2,9 +2,38 @@
 
 $(document).ready(function() {
     // register our function as the "callback" to be triggered by the form's submission event
-    $("#form-gif-request").submit(fetchAndDisplayGif); // in other words, when the form is submitted, fetchAndDisplayGif() will be executed
+    $("#form-gif-request").submit(formSubmitted); // in other words, when the form is submitted, fetchAndDisplayGif() will be executed
 });
 
+
+function formSubmitted(event) {
+
+    // This prevents the form submission from doing what it normally does: send a request (which would cause our page to refresh).
+    // Because we will be making our own AJAX request, we dont need to send a normal request and we definitely don't want the page to refresh.
+    event.preventDefault();
+
+    if (checkCaptcha()) {
+      fetchAndDisplayGif();
+    }
+}
+
+function checkCaptcha() {
+  var captchaInput = $("#form-gif-request").find("input[name='captcha']");
+  var captchaVal = captchaInput.val();
+
+  captchaInput.css('border-color','');
+
+  var captchaMsg = $("#captcha-msg");
+  captchaMsg.text("");
+
+  if (captchaVal == 5) return true;
+
+  // else (fail)
+  captchaInput.css('border-color','red');
+  captchaMsg.text("No gifs for you!");
+  captchaMsg.css("color","red");
+  return false;
+}
 
 /**
  * sends an asynchronous request to Giphy.com aksing for a random GIF using the
@@ -12,11 +41,7 @@ $(document).ready(function() {
  *
  * upon receiving a response from Giphy, updates the DOM to display the new GIF
  */
-function fetchAndDisplayGif(event) {
-
-    // This prevents the form submission from doing what it normally does: send a request (which would cause our page to refresh).
-    // Because we will be making our own AJAX request, we dont need to send a normal request and we definitely don't want the page to refresh.
-    event.preventDefault();
+function fetchAndDisplayGif() {
 
     // get the user's input text from the DOM
     var searchQuery = $("#form-gif-request").find("input[name='tag']").val(); // should be e.g. "dance"

@@ -4,18 +4,49 @@
     <title>The AJAXson 5</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="request-gif.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 </head>
 <body>
-    <h1>The AJAXson 5</h1>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          The AJAXson 5
+        </h1>
+        <h2 class="subtitle">
+        </h2>
+      </div>
+    </div>
+  </section>
 
     <form id="form-gif-request" />
+    <section class="section">
+      <div class="container">
         <label>What kind of Jackson 5 related gif do you want?</label>
         <input name="tag" type="text"/>
-        <input type="submit" value="Get my Gif!" />
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        Prove you're not a robot by answering this riddle:<br/>
+        <input name="captcha" type="text"/>
+        <label>Jacksons are better than 1</label><br/>
+        <span id="captcha-msg"></span>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <input type="submit" value="Get my Gif!" class="button is-primary" />
+      </div>
+    </section>
     </form>
 
-    <img id="gif" src="" hidden="true"/>
-    <p id="feedback" hidden="true"></p>
+    <section class="section">
+      <div class="container">
+        <img id="gif" src="" hidden="true"/>
+        <p id="feedback" hidden="true"></p>
+      </div>
+    </section>
 
 </body>
 </html>
