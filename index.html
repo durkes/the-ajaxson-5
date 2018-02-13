@@ -10,6 +10,9 @@
     input[name="captcha"] {
       width: 4em;
     }
+    p {
+      margin-bottom: 3em !important;
+    }
   </style>
 </head>
 <body>
@@ -32,11 +35,11 @@
           <form id="form-gif-request">
             <p>
               <label for="tag" class="has-text-weight-bold">What kind of Jackson 5 related gif do you want?</label><br/>
-              <input name="tag" id="tag" type="text"/>
+              <input name="tag" id="tag" type="text" class="input"/>
             </p>
             <p>
               <label for="captcha" class="has-text-weight-bold">Prove you're not a robot by answering this riddle:</label><br/>
-              <input name="captcha" id="captcha" type="text"/>
+              <input name="captcha" id="captcha" type="text" class="input"/>
               <label for="captcha">Jacksons are better than 1</label><br/>
               <span id="captcha-msg"></span>
             </p>
