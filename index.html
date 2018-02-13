@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>The AJAXson 5</title>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="request-gif.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+  <title>The AJAXson 5</title>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="request-gif.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+
+  <style>
+    input[name="captcha"] {
+      width: 4em;
+    }
+  </style>
 </head>
 <body>
   <section class="hero is-primary is-bold">
@@ -19,34 +25,33 @@
     </div>
   </section>
 
-    <form id="form-gif-request" />
-    <section class="section">
-      <div class="container">
-        <label>What kind of Jackson 5 related gif do you want?</label>
-        <input name="tag" type="text"/>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column content">
+          <form id="form-gif-request">
+            <p>
+              <label for="tag" class="has-text-weight-bold">What kind of Jackson 5 related gif do you want?</label><br/>
+              <input name="tag" id="tag" type="text"/>
+            </p>
+            <p>
+              <label for="captcha" class="has-text-weight-bold">Prove you're not a robot by answering this riddle:</label><br/>
+              <input name="captcha" id="captcha" type="text"/>
+              <label for="captcha">Jacksons are better than 1</label><br/>
+              <span id="captcha-msg"></span>
+            </p>
+            <p>
+              <input type="submit" value="Get my Gif!" class="button is-link is-medium" />
+            </p>
+          </form>
+        </div>
+        <div class="column">
+          <img id="gif" src="" hidden="true"/>
+          <p id="feedback" hidden="true"></p>
+        </div>
       </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        Prove you're not a robot by answering this riddle:<br/>
-        <input name="captcha" type="text"/>
-        <label>Jacksons are better than 1</label><br/>
-        <span id="captcha-msg"></span>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <input type="submit" value="Get my Gif!" class="button is-primary" />
-      </div>
-    </section>
-    </form>
-
-    <section class="section">
-      <div class="container">
-        <img id="gif" src="" hidden="true"/>
-        <p id="feedback" hidden="true"></p>
-      </div>
-    </section>
+    </div>
+  </section>
 
 </body>
 </html>
